@@ -14,5 +14,17 @@ spec:
     spec:
       containers:
       - name: mydep
-        image: tomcat:8
+        image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myserv
+spec:
+  selector:
+    app: mydep
+  ports:
+  - port: 80
+    targetPort: 80
+
         
