@@ -3,12 +3,13 @@ kind: Job
 metadata:
   name: myjob
 spec:
-  completions: 3
+  parallelism: 3
+  completions: 7
   # ttlSecondsAfterFinished: 100
   template:
     spec:
       containers:
       - name: pi
         image: centos:7
-        command: [/bin/sh,-c,"sleep 20"]
+        command: [/bin/sh,-c,"sleep 10"]
       restartPolicy: Never
