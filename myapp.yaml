@@ -1,0 +1,18 @@
+apiVersion: newns
+kind: Namespace
+metadata:
+  name: newns
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: newpod 
+  namespace: newns     
+  labels:
+    app: newapp 
+spec:
+  containers:
+  - name: n1
+    image: tomcat:8
+    
+
