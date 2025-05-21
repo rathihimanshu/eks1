@@ -21,6 +21,7 @@ kind: Service
 metadata:
   name: myserv
 spec:
+  type: LoadBalancer
   selector:
     app: mydep
   ports:
