@@ -10,6 +10,8 @@ metadata:
   namespace: newns     
   labels:
     app: newapp 
+    env: dev
+    client: abc
 spec:
   containers:
   - name: n1
