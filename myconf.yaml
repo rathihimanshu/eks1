@@ -4,7 +4,7 @@ metadata:
   name: myconf
 data:
   username: someuser
-  uid: 1201
+  uid: someuid
 ---
 apiVersion: v1
 kind: Pod
