@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: myconf
 data:
-  username: someuser
-  uid: someuid
+  username: someuser-updated
+  uid: someuid-updated
 ---
 apiVersion: v1
 kind: Pod
