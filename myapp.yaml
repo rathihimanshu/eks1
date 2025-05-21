@@ -1,4 +1,4 @@
-apiVersion: newns
+apiVersion: v1
 kind: Namespace
 metadata:
   name: newns
