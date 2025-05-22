@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emppod
+  labels:
+    app: emppod
+spec:
+  containers:
+  - name: n1
+    image: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: empvol
+  - name: n2
+    image: centos:7
+    command: [/bin/sh,-c,'while true;do X=$[$X+1];echo "<h1>$X</h1>" > /usr/share/nginx/html/index.html;sleep 1;done']
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: empvol
+  volumes:
+  - name: empvol
+    emptyDir: {}
