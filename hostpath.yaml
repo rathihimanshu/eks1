@@ -19,4 +19,5 @@ spec:
       name: empvol
   volumes:
   - name: hostpath
-    hostPath: /tmp/datadir
+    hostPath: 
+      path: /tmp/datadir
