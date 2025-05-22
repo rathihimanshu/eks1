@@ -20,3 +20,15 @@ spec:
   volumes:
   - name: empvol
     emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: empservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: emppod
+  ports:
+  - port: 80
+    targetPort: 80
