@@ -10,13 +10,13 @@ spec:
     image: nginx
     volumeMounts:
     - mountPath: /usr/share/nginx/html
-      name: empvol
+      name: hostpath
   - name: n2
     image: centos:7
     command: [/bin/sh,-c,'while true;do X=$[$X+1];echo "<h1>$X</h1>" > /usr/share/nginx/html/index.html;sleep 1;done']
     volumeMounts:
     - mountPath: /usr/share/nginx/html
-      name: empvol
+      name: hostpath
   volumes:
   - name: hostpath
     hostPath: 
