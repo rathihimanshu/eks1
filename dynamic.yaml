@@ -1,4 +1,17 @@
 apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+spec:
+  resources:
+    requests:
+      storage: 12
+  volumeMode: Filesystem
+  storageClassName: gp2
+  accessModes:
+    - ReadWriteOnce
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: dynamicpod
@@ -13,16 +26,5 @@ spec:
   - name: myvol
     persistentVolumeClaim:
       claimName: mypvc
---- 
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mypvc
-spec:
-  resources:
-    requests:
-      storage: 12Gi
-  volumeMode: Filesystem
-  storageClassName: gp2
-  accessModes:
-    - ReadWriteOnce
+
+
