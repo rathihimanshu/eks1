@@ -4,7 +4,7 @@ metadata:
   name: nginx-ebs
 spec:
   serviceName: "nginx-ebs"
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-ebs
