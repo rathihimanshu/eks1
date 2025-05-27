@@ -3,12 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: mypvc
 spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
   resources:
     requests:
       storage: 12Gi
-  storageClassName: gp2
-  accessModes:
-    - ReadWriteOnce
 ---
 apiVersion: v1
 kind: Pod
