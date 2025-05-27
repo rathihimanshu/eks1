@@ -6,7 +6,6 @@ spec:
   selector:
     matchLabels:
       app: myst
-  serviceName: stserv
   replicas: 2
   template:
     metadata:
@@ -16,15 +15,3 @@ spec:
       containers:
       - name: myst
         image: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: stserv
-spec:
-  type: None
-  selector:
-    app: myst
-  ports:
-  - port: 80
-    targetPort: 80
