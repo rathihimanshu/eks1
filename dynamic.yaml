@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dynamicpod
+spec:
+  containers:
+  - name: m1
+    image: mongo
+    volumeMounts:
+    - name: myvol
+      mountPath: /data/db
+  volumes: 
+  - name: myvol
+    persistentVolumeClaim:
+      claimName: mypvc
+--- 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+spec:
+  resources:
+    requests:
+      storage: 12Gi
+  volumeMode: Filesystem
+  storageClassName: gp2
+  accessModes:
+    - ReadWriteOnce
