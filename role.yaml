@@ -1,27 +1,21 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: rolens
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: pod-reader-role
-  namespace: rolens
 rules:
 - apiGroups: [""] # "" indicates the core API group
   resources: ["pods"]
-  verbs: ["get", "watch", "list"]
+  verbs: ["list"]
+  # verbs: ["get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: read-pods
-  namespace: rolens
 subjects:
 # You can specify more than one "subject"
 - kind: User
-  name: jane # "name" is case sensitive
+  name: eks1-user # "name" is case sensitive
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   # "roleRef" specifies the binding to a Role / ClusterRole
