@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   name: nginx-efs
 spec:
-  serviceName: "nginx-efs"
   replicas: 3
   selector:
     matchLabels:
