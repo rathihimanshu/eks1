@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-efs
+spec:
+  serviceName: "nginx-efs"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-efs
+  template:
+    metadata:
+      labels:
+        app: nginx-efs
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: efs-storage
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: efs-storage
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      storageClassName: efs-sc
+      resources:
+        requests:
+          storage: 5Gi
