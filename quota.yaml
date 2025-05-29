@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: argodepnsquota
+  namespace: argodepns
+spec:
+  hard:
+    pods: "2"
