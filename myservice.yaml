@@ -3,6 +3,9 @@ kind: ServiceAccount
 metadata:
   name: myserviceaccount
   namespace: default
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::533266971996:role/EKS-S3ListRole
+
 ---
 apiVersion: v1
 kind: Pod
